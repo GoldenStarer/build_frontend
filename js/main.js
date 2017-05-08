@@ -199,8 +199,9 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
 			url: "/normEdit",
 			templateUrl: "views/norm/normEdit.html",
 			data: {
-				pageTitle: '新增规范'
+				pageTitle: '编辑规范'
 			},
+			params: {'editNorm': null},
 			controller: "normEditController",
 			resolve: {
 				deps: ['$ocLazyLoad', function($ocLazyLoad) {

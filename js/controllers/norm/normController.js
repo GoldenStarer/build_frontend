@@ -10,10 +10,7 @@ angular.module('MetronicApp').controller('normController', function($rootScope, 
 		}
 		
 		$scope.addType = function(data) {
-			$scope.modal.currentPid = !(data && data.pids[0])?'0':data.pids[0]._id;
-			$scope.modal.currentVal = !data?null:data.name;
-			$scope.modal.currentId = !data?null:data._id;
-			$scope.modal.currentImg = !data?null:data.img;
+			$state.go('normEdit',{editNorm:data},{reload:true});
 		};
 		$scope.saveType = function() {
 			let val = $scope.modal.currentVal;
