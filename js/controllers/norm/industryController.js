@@ -13,7 +13,6 @@ angular.module('MetronicApp').controller('industryController', function($rootSco
 			$scope.modal.currentVal = !data?null:data.name;
 			$scope.modal.currentId = !data?null:data._id;
 			$scope.modal.currentImg = !data?null:data.img;
-			currentNumber
 		};
 		$scope.saveType = function() {
 			let val = $scope.modal.currentVal;
