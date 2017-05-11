@@ -44,7 +44,7 @@
 							<tbody>
 								<tr ng-repeat="x in typeList" class="gradeX odd" role="row">
 									<td class="center">{{x.name}}</td>
-									<td class="center"><a ng-repeat="y in x.pids" ng-click="delPid(x._id,y._id)">{{y.name}}&nbsp;&nbsp;</a></td>
+									<td class="center"><a ng-repeat="y in x.pids">{{y.name}}&nbsp;&nbsp;</a></td>
 									<td class="center"><span ng-repeat="y in x.list">{{y.name}}&nbsp;&nbsp;</span></td>
 									<td class="center"><a href="{{x.img}}">{{x.img}}</a></td>
 									<td>
@@ -73,21 +73,22 @@
 			</div>
 			<div class="modal-body">
 				<div class="form-group">
-					<label class="sr-only" for="name">名称</label>
+					<label for="name">名称</label>
 					<input type="text" class="form-control" id="name" ng-model="modal.currentVal" placeholder="请输入名称">
 				</div>
-				<div class="form-group">
+				<!--<div class="form-group">
 					<label for="name">选择类别</label>
 					<select id="type" class="form-control" ng-model="modal.currentPid">
 						<option value="0">暂无分类</option>
 						<option ng-repeat="x in pList" value="{{x._id}}">{{x.name}}</option>
 					</select>
-				</div>
-				<!--<div class="form-group" style="padding-left: 20px;">
-					<div class="checkbox" ng-repeat="x in pList">
-						<label><input type="checkbox" name="type" value="{{x._id}}">{{x.name}}</label>
-					</div>
 				</div>-->
+				<div class="form-group">
+					<label class="control-label">选择类别</label>
+					<select id="select2_sample1" ng-model="modal.themeList" class="form-control select2" multiple>
+						<option ng-repeat="item in pList" value="{{item._id}}">{{item.name}}</option>
+					</select>
+				</div>
 				<div class="form-group">
 					<label for="url" class="col-sm-3 control-label">图片选择:</label>
 					<div class="col-sm-7">
@@ -104,3 +105,7 @@
 		</div>
 	</div>
 </div>
+<script>
+	ComponentsSelect2.init(); // init todo page
+	ComponentsBootstrapSelect.init(); // init todo page
+</script>
