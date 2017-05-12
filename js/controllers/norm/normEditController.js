@@ -5,10 +5,7 @@ angular.module('MetronicApp').controller('normEditController', function($rootSco
 
 		var editNorm = $stateParams.editNorm;
 		var sts = false; //编辑状态默认是新增
-		
-		
-		
-		
+
 		$scope.modal = {
 			currentId: editNorm&&editNorm._id ? editNorm._id : '0',
 			currentVal: editNorm&&editNorm.title ? editNorm.title : '', //当前名称值
