@@ -50,7 +50,6 @@ angular.module('MetronicApp').controller('industryController', function($rootSco
 					img: img,
 					pids: pids
 				};
-				console.log(123);
 				console.log(pids);
 				req('POST', 'industry/modify', a, function(res) {
 					//请求成功执行代码
@@ -68,7 +67,7 @@ angular.module('MetronicApp').controller('industryController', function($rootSco
 				let a = {
 					name: val,
 					img: img,
-					pid: pid
+					pids: pids
 				};
 				console.log(a);
 				req('POST', 'industry/save', a, function(res) {
