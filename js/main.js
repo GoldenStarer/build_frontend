@@ -236,6 +236,107 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
 				}]
 			}
 		})
+		
+		.state('area', {
+			url: "/area",
+			templateUrl: "views/project/area.html",
+			data: {
+				pageTitle: '地区项目'
+			},
+			controller: "areaController",
+			resolve: {
+				deps: ['$ocLazyLoad', function($ocLazyLoad) {
+					return $ocLazyLoad.load({
+						name: 'MetronicApp',
+						insertBefore: '#ng_load_plugins_before',
+						files: [
+							'js/controllers/project/areaController.js',
+						]
+					});
+				}]
+			}
+		})
+		.state('road', {
+			url: "/road",
+			templateUrl: "views/project/road.html",
+			data: {
+				pageTitle: '区域项目'
+			},
+			controller: "roadController",
+			resolve: {
+				deps: ['$ocLazyLoad', function($ocLazyLoad) {
+					return $ocLazyLoad.load({
+						name: 'MetronicApp',
+						insertBefore: '#ng_load_plugins_before',
+						files: [
+							'./assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css',
+                            './assets/global/plugins/select2/css/select2.min.css',
+                            './assets/global/plugins/select2/css/select2-bootstrap.min.css',
+
+                            './assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js',
+                            './assets/global/plugins/select2/js/select2.full.min.js',
+
+                            './assets/pages/scripts/components-bootstrap-select.min.js',
+                            './assets/pages/scripts/components-select2.min.js',
+                            
+							'js/controllers/project/roadController.js',
+						]
+					});
+				}]
+			}
+		})
+		.state('unit', {
+			url: "/unit",
+			templateUrl: "views/project/unit.html",
+			data: {
+				pageTitle: '具体项目'
+			},
+			controller: "unitController",
+			resolve: {
+				deps: ['$ocLazyLoad', function($ocLazyLoad) {
+					return $ocLazyLoad.load({
+						name: 'MetronicApp',
+						insertBefore: '#ng_load_plugins_before',
+						files: [
+							'js/controllers/project/unitController.js',
+							
+						]
+					});
+				}]
+			}
+		})
+		.state('unitEdit', {
+			url: "/unitEdit",
+			templateUrl: "views/project/unitEdit.html",
+			data: {
+				pageTitle: '编辑具体项目'
+			},
+			params: {'editUnit': null},
+			controller: "unitEditController",
+			resolve: {
+				deps: ['$ocLazyLoad', function($ocLazyLoad) {
+					return $ocLazyLoad.load({
+						name: 'MetronicApp',
+						insertBefore: '#ng_load_plugins_before',
+						files: [
+							'./assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css',
+                            './assets/global/plugins/select2/css/select2.min.css',
+                            './assets/global/plugins/select2/css/select2-bootstrap.min.css',
+
+                            './assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js',
+                            './assets/global/plugins/select2/js/select2.full.min.js',
+
+                            './assets/pages/scripts/components-bootstrap-select.min.js',
+                            './assets/pages/scripts/components-select2.min.js',
+                            
+							'js/controllers/project/unitEditController.js',
+							
+						]
+					});
+				}]
+			}
+		})
+		
 		// Dashboard
 		.state('dashboard', {
 			url: "/dashboard.html",
