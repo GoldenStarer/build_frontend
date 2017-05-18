@@ -27,26 +27,26 @@
 		</div>
 	</div>
 	<div class="form-group">
-		<label class="control-label col-sm-2">地区选择</label>
+		<label class="control-label col-sm-2">辖区选择</label>
 		<div class="col-md-4">
-			<select id="select2_sample1" ng-model="modal.areaList" class="form-control select2" multiple>
-				<option ng-repeat="item in areaList" value="{{item._id}}">{{item.name}}</option>
+			<select id="select2_sample1" ng-model="modal.areaid" class="form-control select2" <!--multiple-->>
+				<option ng-repeat="item in areaid" value="{{item._id}}">{{item.name}}</option>
 			</select>
 		</div>
 	</div>
 	<div class="form-group">
-		<label class="control-label col-sm-2">区域选择</label>
+		<label class="control-label col-sm-2">街道选择</label>
 		<div class="col-md-4">
-			<select id="select2_sample2" ng-model="modal.roadList" class="form-control select2" multiple>
-				<option ng-repeat="item in roadList" value="{{item._id}}">{{item.name}}</option>
+			<select id="select2_sample2" ng-model="modal.roadid" class="form-control select2" <!--multiple-->>
+				<option ng-repeat="item in roadid" value="{{item._id}}">{{item.name}}</option>
 			</select>
 		</div>
 	</div>
-	<div class="form-group">
+	<!--<div class="form-group">
 		<div class="col-sm-offset-2 col-md-10">
 			<script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>
 		</div>
-	</div>
+	</div>-->
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-10">
 			<button type="button" class="btn" ng-click="save()"> 保存项目</button>

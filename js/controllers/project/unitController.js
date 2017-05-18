@@ -102,7 +102,7 @@ angular.module('MetronicApp').controller('unitController', function($rootScope, 
 		 	promise
 		 	.then(function(value){
 		 		console.log(value);
-		 		req('GET', 'theme/type/all', {}, function(res) {
+		 		req('GET', 'area/type/all', {}, function(res) {
 					// 请求成功执行代码
 					if(res.code==0){
 						let list = res.result;
@@ -124,7 +124,7 @@ angular.module('MetronicApp').controller('unitController', function($rootScope, 
 				id:id,
 				pid:pid
 			};
-			req('POST', 'unit/delTheme', a, function(res) {
+			req('POST', 'unit/delArea', a, function(res) {
 				// 请求成功执行代码
 				if(res.code==0){
 					alert(res.msg);

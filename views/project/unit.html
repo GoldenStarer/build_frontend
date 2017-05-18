@@ -10,7 +10,7 @@
 		</li>
 	</ul>
 </div>
-<h3 class="page-title"> 具体项目 </h3>
+<h3 class="page-title"> 单元项目 </h3>
 <!-- END PAGE HEADER-->
 <!-- BEGIN MAIN CONTENT -->
 <div class="row ng-scope">
@@ -35,17 +35,17 @@
 							<thead>
 								<tr role="row">
 									<th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="width: 150px;"> 名称 </th>
-									<th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"> 地区 </th>
-									<th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"> 区域 </th>
+									<th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"> 辖区 </th>
+									<th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"> 街道 </th>
 									<th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"> 编号 </th>
 									<th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="width: 150px;"> 操作 </th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr ng-repeat="x in typeList" class="gradeX odd" role="row">
-									<td class="center">{{x.name}}</td>
-									<td class="center"><span ng-repeat="y in x.themeIds">{{y.name}}&nbsp;&nbsp;</span></td>
-									<td class="center"><span ng-repeat="y in x.industryIds">{{y.name}}&nbsp;&nbsp;</span></td>
+									<td class="center">{{x.title}}</td>
+									<td class="center"><span>{{x.areaId.name}}&nbsp;&nbsp;</span></td>
+									<td class="center"><span>{{x.roadId.name}}&nbsp;&nbsp;</span></td>
 									<td class="center"><span>{{x.number}}</span></td>
 									<td>
 										<span class="label label-sm label-success" ng-click="addType(x)"> 修改 </span>&nbsp;&nbsp;

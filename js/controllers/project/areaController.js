@@ -14,7 +14,7 @@ angular.module('MetronicApp').controller('areaController', function($rootScope, 
 		function refresh(){//刷新当前页面
 			$('#myModal').modal('hide');
 			setTimeout(function (){
-				$state.go('theme',{},{reload:true});
+				$state.go('area',{},{reload:true});
 			}, 1000)
 		}
 		
@@ -30,7 +30,7 @@ angular.module('MetronicApp').controller('areaController', function($rootScope, 
 					name: val,
 					id:id
 				};
-				req('POST', 'theme/modify', a, function(res) {
+				req('POST', 'area/modify', a, function(res) {
 					//请求成功执行代码
 					if(res.code==0){
 						alert(res.msg);

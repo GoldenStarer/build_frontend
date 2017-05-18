@@ -7,27 +7,18 @@ angular.module('MetronicApp').controller('roadController', function($rootScope, 
 			currentPid: '0',
 			currentVal: '', //当前名称值
 			currentImg: '', //图片地址
-			areaList: []
+			areaid: ''
 		}
 		$scope.addType = function(data) {
-			//$scope.modal.currentPid = !(data && data.pids[0])?'0':data.pids[0]._id;
-			var pids = !data ? [] : data.pids;
+			//$scope.modal.currentPid = !(data && data.pid[0])?'0':data.pid[0]._id;
+			var pid = !data ? '' : data.pid;
 			$scope.modal.currentVal = !data ? null : data.name;
 			$scope.modal.currentId = !data ? null : data._id;
 			$scope.modal.currentImg = !data ? null : data.img;
 
-			if(pids.length > 0) {
-				var list1 = [];
-				for(var i = 0; i < pids.length; i++) {
-					list1.push(pids[i]._id);
-				}
-				console.log(123);
-				console.log(list1);
-
-			}
 			setTimeout(function() {
-				$scope.$apply(function() {　
-					$scope.modal.areaList = list1;
+				$scope.$apply(function() {
+					$scope.modal.areaid = pid;
 				});
 				ComponentsSelect2.init();
 				ComponentsBootstrapSelect.init();
@@ -40,17 +31,23 @@ angular.module('MetronicApp').controller('roadController', function($rootScope, 
 			//let pid = $scope.modal.currentPid;
 			let img = $scope.modal.currentImg;
 			if(!val) {
+				alert("标题不能为空");
 				return;
 			}
-			let pids = $("#select2_sample1").val();
+			let pid = $scope.modal.areaid;
+			console.log(pid);
+			if(!pid) {
+				alert("辖区不能为空");
+				return;
+			}
 			if(id) {
 				let a = {
 					name: val,
 					id: id,
 					img: img,
-					pids: pids
+					pid: pid
 				};
-				console.log(pids);
+				
 				req('POST', 'road/modify', a, function(res) {
 					//请求成功执行代码
 					if(res.code == 0) {
@@ -67,7 +64,7 @@ angular.module('MetronicApp').controller('roadController', function($rootScope, 
 				let a = {
 					name: val,
 					img: img,
-					pids: pids
+					pid: pid
 				};
 				console.log(a);
 				req('POST', 'road/save', a, function(res) {
