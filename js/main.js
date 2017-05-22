@@ -57,9 +57,9 @@ MetronicApp.factory('req', ['$http', 'settings', function($http, settings) {
 			url: settings.main_url + uri
 		}
 		if(reqData.method=="GET"){
-			method.params = data;
+			reqData.params = data;
 		}else{
-			method.data = data;
+			reqData.data = data;
 		}
 		$http(reqData).then(function(response) {
 			// 请求成功执行代码
@@ -384,6 +384,26 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
 			}
 		})
 
+		// Search Page
+		.state('search', {
+			url: "/search",
+			templateUrl: "views/search.html",
+			data: {
+				pageTitle: 'Search Page Template'
+			},
+			controller: "SearchController",
+			resolve: {
+				deps: ['$ocLazyLoad', function($ocLazyLoad) {
+					return $ocLazyLoad.load({
+						name: 'MetronicApp',
+						insertBefore: '#ng_load_plugins_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+						files: [
+							'js/controllers/SearchController.js'
+						]
+					});
+				}]
+			}
+		})
 }]);
 
 /* Init global settings and run the app */
