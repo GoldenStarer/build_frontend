@@ -52,11 +52,16 @@ MetronicApp.factory('settings', ['$rootScope', function($rootScope) {
 
 MetronicApp.factory('req', ['$http', 'settings', function($http, settings) {
 	var req = function(method, uri, data, successCallback, errorCallback) {
-		$http({
+		var reqData = {
 			method: method,
-			url: settings.main_url + uri,
-			data: data
-		}).then(function(response) {
+			url: settings.main_url + uri
+		}
+		if(reqData.method=="GET"){
+			method.params = data;
+		}else{
+			method.data = data;
+		}
+		$http(reqData).then(function(response) {
 			// 请求成功执行代码
 			if(!response || !response.data) {
 				return;
