@@ -2,15 +2,15 @@
 <div class="page-bar">
 	<ul class="page-breadcrumb">
 		<li>
-			<a ui-sref="blank">首页</a>
+			<a ui-sref="dashboard">首页</a>
 			<i class="fa fa-circle"></i>
 		</li>
 		<li>
-			<a ui-sref="dashboard">项目</a>
+			<a ui-sref="unit">项目</a>
 		</li>
 	</ul>
 </div>
-<h3 class="page-title"> 项目详情 </h3>
+<h3 class="page-title"> 新增项目 </h3>
 <!-- END PAGE HEADER-->
 <!-- BEGIN MAIN CONTENT -->
 <form class="form-horizontal" role="form">
@@ -21,25 +21,23 @@
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="number" class="col-sm-2 control-label">项目编号</label>
-		<div class="col-sm-4">
-			<input type="text" class="form-control" id="number" ng-model="modal.currentNumber" placeholder="请输入">
-		</div>
-	</div>
-	<div class="form-group">
-		<label class="control-label col-sm-2">辖区选择</label>
-		<div class="col-md-4">
-			<select id="select2_sample1" ng-model="modal.areaid" class="form-control select2" <!--multiple-->>
-				<option ng-repeat="item in areaid" value="{{item._id}}">{{item.name}}</option>
-			</select>
-		</div>
-	</div>
-	<div class="form-group">
 		<label class="control-label col-sm-2">街道选择</label>
 		<div class="col-md-4">
 			<select id="select2_sample2" ng-model="modal.roadid" class="form-control select2" <!--multiple-->>
 				<option ng-repeat="item in roadid" value="{{item._id}}">{{item.name}}</option>
 			</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="title" class="col-sm-2 control-label">申报单位</label>
+		<div class="col-sm-4">
+			<input type="text" class="form-control" id="declaration" ng-model="modal.currentDeclaration" placeholder="请输入">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="title" class="col-sm-2 control-label">面积(㎡)</label>
+		<div class="col-sm-4">
+			<input type="text" class="form-control" id="publicArea" ng-model="modal.currentPublicArea" placeholder="请输入">
 		</div>
 	</div>
 	<!--<div class="form-group">

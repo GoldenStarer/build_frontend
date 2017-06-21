@@ -6,9 +6,27 @@ angular.module('MetronicApp').controller('unitController', function($rootScope, 
 			currentId: '0',
 			currentPid: '0',
 			currentVal: '', //当前名称值
+			currentValue:'',
 			currentImg:''//图片地址
 		}
-		
+		$scope.search = function() {//执行搜索
+			let val = $scope.model.currentValue;
+			console.log(val);
+			if (!val) {
+				alert('内容不能为空');
+		      	return;
+		   };
+			req('GET', 'unit/search', { value: val },function(res) {
+				if(res.code==0){
+					let list = res.result;
+					console.log(list);
+					$scope.typeList = list;
+				}else{
+					alert(res.msg);
+					console.log(res.result);
+				}
+			});
+		}
 		$scope.addType = function(data) {
 			$state.go('unitEdit',{editUnit:data},{reload:true});
 		};

@@ -2,11 +2,11 @@
 <div class="page-bar">
 	<ul class="page-breadcrumb">
 		<li>
-			<a ui-sref="blank">首页</a>
+			<a ui-sref="dashboard">首页</a>
 			<i class="fa fa-circle"></i>
 		</li>
 		<li>
-			<a ui-sref="dashboard">项目</a>
+			<a ui-sref="unit">项目</a>
 		</li>
 	</ul>
 </div>
@@ -20,13 +20,23 @@
 			<div class="portlet-body">
 				<div class="table-toolbar">
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-8">
 							<div class="btn-group">
-								<button id="sample_editable_1_new" class="btn sbold green" ng-click="addType()"> 增加类别
+								<button id="sample_editable_1_new" class="btn sbold green" ng-click="addType()"> 添加项目
                                     <i class="fa fa-plus"></i>
                                 </button>
 							</div>
 						</div>
+						<form class="sidebar-search sidebar-search-bordered col-md-4" action="#">
+			                <div class="input-group">
+			                    <input type="text" class="form-control" ng-model="model.currentValue" placeholder="查项目...">
+			                    <span class="input-group-btn" ng-click="search()">
+			                        <a href="" class="btn btn-primary submit">
+			                            <i class="icon-magnifier"></i>
+			                        </a>
+			                    </span>
+			                </div>
+			            </form>
 					</div>
 				</div>
 				<div id="sample_1_wrapper" class="dataTables_wrapper no-footer">
@@ -37,16 +47,18 @@
 									<th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="width: 150px;"> 名称 </th>
 									<th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"> 辖区 </th>
 									<th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"> 街道 </th>
-									<th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"> 编号 </th>
+									<th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"> 申报单位 </th>
+									<th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1"> 面积(㎡) </th>
 									<th tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="width: 150px;"> 操作 </th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr ng-repeat="x in typeList" class="gradeX odd" role="row">
-									<td class="center">{{x.title}}</td>
+									<td ui-sref="unitDetail({id:x._id})" class="center">{{x.title}}</td>
 									<td class="center"><span>{{x.areaId.name}}&nbsp;&nbsp;</span></td>
 									<td class="center"><span>{{x.roadId.name}}&nbsp;&nbsp;</span></td>
-									<td class="center"><span>{{x.number}}</span></td>
+									<td class="center"><span>{{x.declaration}}</span></td>
+									<td class="center"><span>{{x.publicArea}}</span></td>
 									<td>
 										<span class="label label-sm label-success" ng-click="addType(x)"> 修改 </span>&nbsp;&nbsp;
 										<span class="label label-sm label-danger" ng-click="delType(x)"> 删除 </span>

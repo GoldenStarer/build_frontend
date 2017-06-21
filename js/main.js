@@ -42,7 +42,7 @@ MetronicApp.factory('settings', ['$rootScope', function($rootScope) {
 		globalPath: './assets/global',
 		layoutPath: './assets/layouts/layout',
 		//url: 'https://chy.tunnel.qydev.com/',
-		main_url: 'http://localhost:3000/'
+		main_url: 'https://www.chenhaoye.cn/'
 	};
 
 	$rootScope.settings = settings;
@@ -210,6 +210,26 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
 				}]
 			}
 		})
+		.state('normDetail', {
+			url: "/normDetail?id",
+			templateUrl: "views/norm/normDetail.html",
+			data: {
+				pageTitle: '规范详情'
+			},
+			controller: "normDetailController",
+			resolve: {
+				deps: ['$ocLazyLoad', function($ocLazyLoad) {
+					return $ocLazyLoad.load({
+						name: 'MetronicApp',
+						insertBefore: '#ng_load_plugins_before',
+						files: [
+							'js/controllers/norm/normDetailController.js',
+							
+						]
+					});
+				}]
+			}
+		})
 		.state('normEdit', {
 			url: "/normEdit",
 			templateUrl: "views/norm/normEdit.html",
@@ -294,7 +314,7 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
 			url: "/unit",
 			templateUrl: "views/project/unit.html",
 			data: {
-				pageTitle: '具体项目'
+				pageTitle: '项目'
 			},
 			controller: "unitController",
 			resolve: {
@@ -310,11 +330,31 @@ MetronicApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvi
 				}]
 			}
 		})
+		.state('unitDetail', {
+			url: "/unitDetail?id",
+			templateUrl: "views/project/unitDetail.html",
+			data: {
+				pageTitle: '项目详情'
+			},
+			controller: "unitDetailController",
+			resolve: {
+				deps: ['$ocLazyLoad', function($ocLazyLoad) {
+					return $ocLazyLoad.load({
+						name: 'MetronicApp',
+						insertBefore: '#ng_load_plugins_before',
+						files: [
+							'js/controllers/project/unitDetailController.js',
+							
+						]
+					});
+				}]
+			}
+		})
 		.state('unitEdit', {
 			url: "/unitEdit",
 			templateUrl: "views/project/unitEdit.html",
 			data: {
-				pageTitle: '编辑具体项目'
+				pageTitle: '项目编辑'
 			},
 			params: {'editUnit': null},
 			controller: "unitEditController",

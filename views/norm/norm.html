@@ -2,11 +2,11 @@
 <div class="page-bar">
 	<ul class="page-breadcrumb">
 		<li>
-			<a ui-sref="blank">首页</a>
+			<a ui-sref="dashboard">首页</a>
 			<i class="fa fa-circle"></i>
 		</li>
 		<li>
-			<a ui-sref="dashboard">规范</a>
+			<a ui-sref="norm">规范</a>
 		</li>
 	</ul>
 </div>
@@ -20,13 +20,23 @@
 			<div class="portlet-body">
 				<div class="table-toolbar">
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-8">
 							<div class="btn-group">
 								<button id="sample_editable_1_new" class="btn sbold green" ng-click="addType()"> 增加类别
                                     <i class="fa fa-plus"></i>
                                 </button>
 							</div>
 						</div>
+						<form class="sidebar-search sidebar-search-bordered col-md-4" action="#">
+			                <div class="input-group">
+			                    <input type="text" class="form-control" ng-model="model.currentValue" placeholder="查规范...">
+			                    <span class="input-group-btn" ng-click="search()">
+			                        <a href="" class="btn btn-primary submit">
+			                            <i class="icon-magnifier"></i>
+			                        </a>
+			                    </span>
+			                </div>
+			            </form>
 					</div>
 				</div>
 				<div id="sample_1_wrapper" class="dataTables_wrapper no-footer">
@@ -43,7 +53,7 @@
 							</thead>
 							<tbody>
 								<tr ng-repeat="x in typeList" class="gradeX odd" role="row">
-									<td class="center">{{x.title}}</td>
+									<td ui-sref="normDetail({id:x._id})" class="center">{{x.title}}</td>
 									<td class="center"><span ng-repeat="y in x.themeIds">{{y.name}}&nbsp;&nbsp;</span></td>
 									<td class="center"><span ng-repeat="y in x.industryIds">{{y.name}}&nbsp;&nbsp;</span></td>
 									<td class="center"><span>{{x.number}}</span></td>

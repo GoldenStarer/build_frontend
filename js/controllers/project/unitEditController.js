@@ -10,6 +10,8 @@ angular.module('MetronicApp').controller('unitEditController', function($rootSco
 			currentId: editUnit&&editUnit._id ? editUnit._id : '0',
 			currentVal: editUnit&&editUnit.name ? editUnit.name : '', //当前名称值
 			currentNumber: editUnit&&editUnit.number ? editUnit.number : '',
+			currentDeclaration: editUnit&&editUnit.declaration ? editUnit.declaration : '',
+			currentPublicArea: editUnit&&editUnit.publicArea ? editUnit.publicArea : '',
 			roadid: editUnit&&editUnit.roadid ? editUnit.roadid : '',
 			areaid: editUnit&&editUnit.areaid ? editUnit.areaid : ''
 		};
@@ -55,6 +57,8 @@ angular.module('MetronicApp').controller('unitEditController', function($rootSco
 		$scope.save = function() {
 			let title = $("#title").val();
 			let number = $("#number").val();
+			let declaration = $("#declaration").val();
+			let publicArea = $("#publicArea").val();
 			let areaid = $("#select2_sample1").val();
 			let roadid = $("#select2_sample2").val();
 			let id = $scope.modal.currentId;
@@ -72,6 +76,8 @@ angular.module('MetronicApp').controller('unitEditController', function($rootSco
 			let save = {
 				title: title,
 				number: number,
+				declaration: declaration,
+				publicArea: publicArea,
 				areaid: areaid,
 				roadid: roadid
 			}
